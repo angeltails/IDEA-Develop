@@ -9,13 +9,12 @@ import com.jt.manager.mapper.UserMapper;
 import com.jt.manager.pojo.User;
 @Service
 public class UserServiceImpl implements UserService {
-	
-	@Autowired
-	private UserMapper userMapper;
-	
-	@Override
-	public List<User> findAll() {
-		
-		return userMapper.findAll();
-	}
+@Autowired
+private UserMapper userMapper;
+
+    @Override
+    public List<User> findAll() {
+        List<User>userList=userMapper.findAll();
+        return userList;
+    }
 }

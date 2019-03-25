@@ -12,20 +12,14 @@ import com.jt.manager.pojo.User;
 import com.jt.manager.service.UserService;
 
 @Controller
-public class UserController<HttpServletRequest> {
-	
+public class UserController {
 	@Autowired
-	private UserService userService;
-	
+    private UserService userService;
 	@RequestMapping("/findAll")
-	//@ResponseBody  //将对象最终转化为JSON
-	public String findAll(Model model){
-		List<User> userList = 
-				userService.findAll();
-		//将数据传递到页面中 将数据保存到request域中
-		model.addAttribute("userList", userList);
-		//返回的页面的名称
-		
-		return "userList";
-	}
+    public String findAll(Model model){
+        List<User> userList = userService.findAll();
+        model.addAttribute("userList",userList);
+        return "userList";
+    }
+
 }

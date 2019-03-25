@@ -13,12 +13,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("/item")
-public class ItemController {
+public class ItemController{
     @Autowired
     private ItemService itemService;
     @RequestMapping("/query")
     @ResponseBody
-    public EasyUIResult findItemByPage (Integer page,Integer rows){
+    public EasyUIResult findItemByPage(Integer page,Integer rows){
         return itemService.findItemByPage(page,rows);
+    }
+    @RequestMapping(value = "/cat/queryItemName",produces = "text/html;charset=utf-8")
+    @ResponseBody
+    public String findItemCatNameById(String itemId){
+        return itemService.findItemCatNameById(itemId);
     }
 }
