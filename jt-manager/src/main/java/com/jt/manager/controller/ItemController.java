@@ -7,13 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @author FairyTail
- * @date 2019/3/25-11:05
- */
 @Controller
 @RequestMapping("/item")
-public class ItemController{
+public class ItemController {
     @Autowired
     private ItemService itemService;
     @RequestMapping("/query")
@@ -23,7 +19,7 @@ public class ItemController{
     }
     @RequestMapping(value = "/cat/queryItemName",produces = "text/html;charset=utf-8")
     @ResponseBody
-    public String findItemCatNameById(String itemId){
+    public String findItemCatNameById(Long itemId){
         return itemService.findItemCatNameById(itemId);
     }
 }
