@@ -1,10 +1,18 @@
 package com.jt.common.po;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author FairyTail
  * @date 2019/3/25-11:23
  */
+@Table(name = "tb_item")
 public class Item extends BasePojo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;				//商品id
     private String title;			//商品标题
 
