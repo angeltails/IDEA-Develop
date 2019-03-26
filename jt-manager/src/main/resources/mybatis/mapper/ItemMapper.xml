@@ -13,4 +13,14 @@
         limit #{start},#{rows}
     </select>
 
+    <!--#不能传递参数{ids}，传ids数据库不认识该字段，无法写入成功-->
+    <update id="updateStatus" >
+        update tb_item set status=#{status},updated=now()
+       where id in(
+       <foreach collection="ids" item="id" separator=",">
+           #{id}
+       </foreach>
+       )
+    </update>
+
 </mapper>
