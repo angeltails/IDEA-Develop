@@ -15,11 +15,10 @@ import java.util.List;
 public class ItemCatController {
     @Autowired
     private ItemCatService itemCatService;
+
     @RequestMapping("/cat/list")
     @ResponseBody
-    public List<EasyUITree> findItemCatListById(@RequestParam(value = "id",defaultValue = "0") Long parentId){
+    public List<EasyUITree> findItemCatListById(@RequestParam(value = "id", defaultValue = "0") Long parentId) {
         return itemCatService.findItemCatListById(parentId);
     }
-
-
 }

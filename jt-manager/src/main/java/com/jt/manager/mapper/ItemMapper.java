@@ -9,12 +9,11 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 public interface ItemMapper extends SysMapper<Item> {
-    @Select("select count(*) from tb_item")
-    int findItemCount();
 
-    List<Item> findItemByPage(@Param("start") int start, @Param("rows") Integer rows);
-    @Select("select name from tb_item_cat where id=#{itemId} ")
-    String findItemCatNameById(Long itemId);
+    List<Item> findItemByPage(@Param("start") Integer start, @Param("rows") Integer rows);
 
-    void updateStatus(@Param("ids") String[] ids, @Param("status") int status);
+
+    String findItemCatNameById(@Param("id") Long itemId);
+
+    void updateStatus(@Param("ids") String[] ids,@Param("status") int status);
 }

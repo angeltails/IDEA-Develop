@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ItemCatService {
 
+
     List<EasyUITree> findItemCatListById(Long parentId);
 }

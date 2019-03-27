@@ -7,20 +7,22 @@
     2.表示与接口的映射关系.
   -->
 <mapper namespace="com.jt.manager.mapper.ItemMapper">
+<select id="findItemByPage" resultType="Item">
+    select * from tb_item order by updated desc
+    limit #{start},#{rows}
+</select>
 
-    <select id="findItemByPage" resultType="Item">
-        select * from tb_item order by updated desc
-        limit #{start},#{rows}
+    <select id="findItemCatNameById" resultType="string">
+        select name from tb_item_cat where id=#{id}
     </select>
 
-    <!--#不能传递参数{ids}，传ids数据库不认识该字段，无法写入成功-->
-    <update id="updateStatus" >
-        update tb_item set status=#{status},updated=now()
-       where id in(
-       <foreach collection="ids" item="id" separator=",">
-           #{id}
-       </foreach>
-       )
+    <update id="updateStatus">
+        update tb_item set status =#{status},updated=now()
+        where id in(
+        <foreach collection="ids" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
     </update>
 
 </mapper>
